@@ -1,0 +1,81 @@
+﻿@model ATMWebApp.Models.ContaComListaDeTransacoesViewModel
+
+@{
+    ViewBag.Title = "Transações da Conta";
+}
+
+<h2>Transações da Conta</h2>
+
+<div>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Conta.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conta.PrimeiroNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta.PrimeiroNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conta.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conta.Saldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta.Saldo)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            <b>Data</b>
+        </th>
+        <th>
+            <b>Montante</b>
+        </th>
+        <th>
+            <b>Tipo</b>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Transacoes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Montante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

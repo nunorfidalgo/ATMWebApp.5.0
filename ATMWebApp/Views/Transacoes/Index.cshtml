@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ATMWebApp.Models.Transacao>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Lista de Transações</h2>
+
+<br />
+<table class="table table-striped table-bordered ">
+    <tr>
+
+        <th class="col-sm-3">
+            Conta
+        </th>
+
+        <th class="col-sm-1">
+            @Html.DisplayNameFor(model => model.Montante)
+        </th>
+
+        <th class="col-sm-1">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th class="col-sm-8">
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                [@Html.DisplayFor(modelItem => item.Conta.Numero)] @Html.DisplayFor(modelItem => item.Conta.PrimeiroNome) @Html.DisplayFor(modelItem => item.Conta.Apelido)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Montante)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+        </tr>
+    }
+
+</table>

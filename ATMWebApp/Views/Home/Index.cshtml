@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Página Inicial";
+}
+<br />
+<div class="jumbotron">
+    <h1>ATM Bank Web Application</h1>
+    <p class="lead"></p>
+
+    @if (ViewBag.ContaCorrente != null)
+    {
+        <h3>Conta Activa Nº @ViewBag.ContaCorrente.Numero - @ViewBag.ContaCorrente.PrimeiroNome @ViewBag.ContaCorrente.Apelido</h3>
+        <div class="row ">
+            <div class="col-md-3">
+                <a href="@Url.Action("Details","Contas")" class="btn btn-link"><span class="glyphicon glyphicon-question-sign"></span> Consultar o <b>Saldo</b> </a>
+                <a href="@Url.Action("Deposito","Transacoes")" class="btn btn-link "><span class="glyphicon glyphicon-circle-arrow-up"></span> Efetuar um <b>Depósito</b> </a>
+
+                <a href="@Url.Action("Levantamento","Transacoes")" class="btn  btn-link"><span class="glyphicon glyphicon-circle-arrow-down"></span> Efetuar um <b>Levantamento</b></a>
+
+                <a href="@Url.Action("Transferencia","Transacoes")" class="btn btn-link"><span class="glyphicon glyphicon-transfer"></span> Efetuar uma <b>Transferência</b></a>
+                <a href="@Url.Action("ContaComListaDeTransacoes","Contas")" class="btn btn-link"><span class="glyphicon glyphicon-print"></span> Consultar a <b>Lista de Transações</b></a>
+                <p></p>
+                <a href="@Url.Action("SelecionarConta","Home")" class="btn btn-link"><span class="glyphicon glyphicon-transfer"></span> Alterar a conta corrente</a>
+                <a href="@Url.Action("Logout","Home")" class="btn btn-link"><span class="glyphicon glyphicon-transfer"></span> Sair</a>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <p><a href="@Url.Action("Create","Contas")" class="btn btn-primary btn-lg">Criação de uma Conta &raquo;</a></p>
+        <p><a href="@Url.Action("SelecionarConta","Home")" class="btn btn-primary btn-lg">Seleccionar uma Conta &raquo;</a></p>
+    }
+
+</div>

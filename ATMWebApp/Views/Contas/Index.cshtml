@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ATMWebApp.Models.Conta>
+
+@{
+    ViewBag.Title = "Lista das Contas";
+}
+
+<h2>Lista das Contas</h2>
+
+<p>
+    @Html.ActionLink("Nova Conta", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimeiroNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimeiroNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apelido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saldo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id= item.Numero }) |
+            @Html.ActionLink("Detalhe", "Details", new { id = item.Numero }) |
+            @Html.ActionLink("Remover", "Delete", new { id = item.Numero })
+        </td>
+    </tr>
+}
+
+</table>

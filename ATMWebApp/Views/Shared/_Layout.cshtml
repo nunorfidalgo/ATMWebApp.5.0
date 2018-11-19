@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ATM Bank Web Application</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+        .input-validation-error {
+            border: 2px solid #f00;
+            background-color: #fee;
+        }
+    </style>
+
+    @*NOVO: CLIENT-SIDE VALIDATION + REMOTE*@
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ATM Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Gestão de Contas <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Criar ", "Create", "Contas")</li>
+                            <li>@Html.ActionLink("Eliminar ", "Delete", "Contas")</li>
+                            <li>@Html.ActionLink("Editar ", "Edit", "Contas")</li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Operações<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Levantamentos", "Levantamento", "Transacoes")</li>
+                            <li>@Html.ActionLink("Depósitos", "Deposito", "Transacoes")</li>
+                            <li>@Html.ActionLink("Transferências", "Transferencia", "Transacoes")</li>
+                            <li>@Html.ActionLink("Seleccionar Conta Corrente", "SelecionarConta", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Consultas<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li>@Html.ActionLink("Listar Contas", "SelecionarConta", "Home")</li>
+                            <li>@Html.ActionLink("Listar Transações", "Index", "Transacoes")</li>
+                            <li>@Html.ActionLink("Listar Transações da Conta", "ContaComListaDeTransacoes", "Contas")</li>
+                            <li role="separator" class="divider"></li>
+                            <li>@Html.ActionLink("Estatistica Sumária", "EstatisticaSumaria", "Estatistica")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>ATM Bank - Web Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
